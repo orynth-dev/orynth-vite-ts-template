@@ -1,0 +1,17 @@
+For all designs I ask you to make, have them be beautiful, not cookie cutter. Make webpages that are fully featured and worthy for production.
+
+This template uses Reown AppKit for Solana wallet connections. When building components that need wallet functionality:
+
+1. ALWAYS use the pre-configured <appkit-button /> component for wallet connections - never create custom wallet connect buttons
+2. Use the wallet connection hooks provided by @reown/appkit/react for wallet state management
+3. All Solana networks (mainnet, testnet, devnet) are pre-configured in src/config/index.tsx
+
+CRITICAL RULES:
+- NEVER modify files in src/config/* - these contain essential wallet configuration
+- NEVER modify vite.config.ts or .env - these are core setup files
+- NEVER write `package.json` directly - use npm commands to install packages if needed
+- ALWAYS use <appkit-button /> for wallet connections instead of custom implementations
+
+For icons, use any icon library you prefer. For styling, use any CSS approach you prefer (CSS modules, styled-components, Tailwind, etc.).
+
+The wallet connection is automatically handled - focus on building great user experiences around the connected wallet state.

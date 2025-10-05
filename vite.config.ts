@@ -5,5 +5,9 @@ export default defineConfig({
   plugins: [react()],
   define: {
     'process.env': {},
+    global: 'globalThis',
   },
+  optimizeDeps: {
+    include: ['react', 'react-dom']
+  }
 })

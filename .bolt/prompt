@@ -2,15 +2,41 @@ For all designs I ask you to make, have them be beautiful, not cookie cutter. Ma
 
 This template uses Reown AppKit for Solana wallet connections. When building components that need wallet functionality:
 
+## Wallet Integration Rules:
 1. ALWAYS use the pre-configured <appkit-button /> component for wallet connections - never create custom wallet connect buttons
-2. Use the wallet connection hooks provided by @reown/appkit/react for wallet state management
+2. Use wallet connection hooks from @reown/appkit/react for wallet state management (useAppKitAccount, useAppKitNetwork, etc.)
 3. All Solana networks (mainnet, testnet, devnet) are pre-configured in src/config/index.tsx
 
-CRITICAL RULES:
+## Working with App.tsx:
+- The AppKit is initialized inside a useEffect hook with error handling
+- Always wrap <appkit-button /> with a loading state check: {appKitInitialized ? <appkit-button /> : <div>Loading...</div>}
+- When adding new components, place them after the wallet button in the existing div structure
+- Use the established styling pattern with inline styles or add your preferred CSS framework
+
+## Example App.tsx modifications:
+```tsx
+return (
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '2rem' }}>
+    <h2>Your App Title</h2>
+    {appKitInitialized ? (
+      <>
+        <appkit-button />
+        {/* Add your components here */}
+        <YourNewComponent />
+      </>
+    ) : (
+      <div>Loading wallet connection...</div>
+    )}
+  </div>
+)
+```
+
+## CRITICAL RULES:
 - NEVER modify files in src/config/* - these contain essential wallet configuration
 - NEVER modify vite.config.ts or .env - these are core setup files
 - NEVER write `package.json` directly - use npm commands to install packages if needed
 - ALWAYS use <appkit-button /> for wallet connections instead of custom implementations
+- NEVER move or remove the AppKit initialization logic from the useEffect hook
 
 For icons, use any icon library you prefer. For styling, use any CSS approach you prefer (CSS modules, styled-components, Tailwind, etc.).
 

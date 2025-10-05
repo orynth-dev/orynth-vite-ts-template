@@ -91,6 +91,6 @@ I need you to implement Reown AppKit with Solana wallet connection in my Vite + 
   1. Create the exact file structure as shown above
   2. The <appkit-button /> component will automatically handle wallet connection
   3. Get your project ID from https://dashboard.reown.com
-  4. All Solana networks (mainnet, testnet, devnet) are pre-configured
+  4. All Solana networks (mainnet, testnet, devnet) are pre-cocnfigured
   5. TypeScript is fully configured and ready to use
   6. The template supports React 19 and latest Vite

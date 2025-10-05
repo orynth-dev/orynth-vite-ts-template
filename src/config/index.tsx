@@ -2,7 +2,7 @@ import { solana, solanaTestnet, solanaDevnet } from '@reown/appkit/networks'
 import type { AppKitNetwork } from '@reown/appkit/networks'
 import { SolanaAdapter } from '@reown/appkit-adapter-solana/react'
 
-export const projectId = import.meta.env.VITE_PROJECT_ID || "your-project-id"
+export const projectId = import.meta.env.VITE_PROJECT_ID || "162f061fcc08eee3ed1840ff1717d8ef"
 
 if (!projectId) {
   throw new Error('Project ID is not defined')
